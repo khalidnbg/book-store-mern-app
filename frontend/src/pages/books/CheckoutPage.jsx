@@ -90,6 +90,7 @@ const CheckoutPage = () => {
                         placeholder="email@domain.com"
                       />
                     </div>
+
                     <div className="md:col-span-5">
                       <label html="phone">Phone Number</label>
                       <input
