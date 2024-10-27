@@ -43,6 +43,25 @@ export const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  // manage user
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+      setLoading(false);
+
+      if (user) {
+        const { email, displayName, photoUrl } = user;
+        const userData = {
+          email,
+          username: displayName,
+          photo: photoUrl,
+        };
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   const value = {
     currentUser,
     registerUser,

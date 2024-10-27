@@ -11,6 +11,7 @@ import {
 import avatarImg from "../assets/avatar.png";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useAuth } from "../context/AuthContext";
 
 const navigation = [
   {
@@ -32,7 +33,11 @@ const navigation = [
 ];
 
 const Navbar = () => {
-  const currentUser = false;
+  const { currentUser, logoutUser } = useAuth();
+
+  const handleLogout = () => {
+    logoutUser();
+  };
 
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -85,6 +90,15 @@ const Navbar = () => {
                           <Link to={item.href}>{item.name}</Link>
                         </li>
                       ))}
+
+                      <li>
+                        <button
+                          className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </button>
+                      </li>
                     </ul>
                   </div>
                 )}
