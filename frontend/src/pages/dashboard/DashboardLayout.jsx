@@ -1,7 +1,3 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-
-import Loading from "../../components/Loading";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { HiViewGridAdd } from "react-icons/hi";
 import { MdOutlineManageHistory } from "react-icons/md";
@@ -106,6 +102,7 @@ const DashboardLayout = () => {
           </div>
         </div>
       </aside>
+
       <div className="flex-grow text-gray-800">
         <header className="flex items-center h-20 px-6 sm:px-10 bg-white">
           <button className="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full">
@@ -264,6 +261,7 @@ const DashboardLayout = () => {
               </Link>
             </div>
           </div>
+
           <Outlet />
         </main>
       </div>
